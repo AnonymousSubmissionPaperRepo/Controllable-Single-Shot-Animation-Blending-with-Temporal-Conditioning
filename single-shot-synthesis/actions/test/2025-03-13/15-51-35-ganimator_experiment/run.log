@@ -1,0 +1,25 @@
+[2025-03-13 15:51:37,133][moai.engine.modules.seed][INFO] - :moai: Setting the seed to 1337.
+[2025-03-13 15:51:37,145][moai.engine.modules.importer][INFO] - :moai: Adding current working directory [C:\Users\tsele\Documents\GitHub\Blendanim\single-shot-synthesis] to path.
+[2025-03-13 15:51:37,151][moai.engine.modules.numpy][INFO] - :moai: Numpy version > 1.23.1, adding deprecated types.
+[2025-03-13 16:42:13,408][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`gradient_penalty`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-03-13 16:42:13,414][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`gradient_penalty`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-03-13 16:42:13,419][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`gradient_penalty`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-03-13 16:42:13,426][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`velocity`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-03-13 16:42:13,428][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`velocity`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-03-13 16:42:13,434][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`velocity`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-03-13 16:42:13,442][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`L1`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-03-13 16:42:13,445][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`L1`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-03-13 16:42:13,449][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`L1`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-03-13 16:42:13,792][src.metrics.generation.ganimator_metrics][WARNING] - :moai: [yellow bold]:warning:[/] Could not load the [cyan underline]ganimator-eval-kernel[/] package, reverting to the [green underline]numba[/] implementation.
+[2025-03-13 16:42:13,901][moai.core.model][INFO] - :moai: Modifying the model with forward_mode.
+[2025-03-13 16:42:15,386][moai.action.run][INFO] - :moai: Evaluation started.
+[2025-03-13 16:42:15,389][moai.action.run][WARNING] - :moai: No checkpoint path provided, test will be done with custom initialization if present.
+[2025-03-13 16:42:15,403][moai.parameters.initialization.partial][INFO] - :moai: Initializing [italic cyan]named_components.gen_s1[/] [bold red]\[strictly][/] from [ul]C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-02-28/18-36-13-ganimator_experiment/ganimator_experiment/version_0/checkpoints/last.ckpt[/].
+[2025-03-13 16:42:15,517][moai.parameters.initialization.partial][INFO] - :moai: Initializing [italic cyan]named_components.gen_s2[/] [bold red]\[strictly][/] from [ul]C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-02-28/18-36-13-ganimator_experiment/ganimator_experiment/version_0/checkpoints/last.ckpt[/].
+[2025-03-13 16:42:15,607][moai.parameters.initialization.partial][INFO] - :moai: Initializing [italic cyan]named_components.gen_s3[/] [bold red]\[strictly][/] from [ul]C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-02-28/18-36-13-ganimator_experiment/ganimator_experiment/version_0/checkpoints/last.ckpt[/].
+[2025-03-13 16:42:15,653][moai.parameters.initialization.partial][INFO] - :moai: Initializing [italic cyan]named_components.gen_s4[/] [bold red]\[strictly][/] from [ul]C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-02-28/18-36-13-ganimator_experiment/ganimator_experiment/version_0/checkpoints/last.ckpt[/].
+[2025-03-13 16:42:15,961][moai.core.model][INFO] - :moai: Instantiating (Indexed) test set data iterator
+[2025-03-13 16:42:15,992][moai.data.datasets.generic.npz][INFO] - :moai: Loaded an .npz file producing ['z_star', 'amps_level_6', 'amps_level_5', 'amps_level_4', 'amps_level_3', 'amps_level_2', 'amps_level_1', 'amps_level_0', 'motion_data_level_6', 'motion_data_level_5', 'motion_data_level_4', 'motion_data_level_3', 'motion_data_level_2', 'motion_data_level_1', 'motion_data_level_0', 'contact_labels_raw', 'joint_rotation_matrices', 'root_position', 'joint_offsets', 'joint_parents'].
+[2025-03-13 16:42:15,997][moai.data.augmentation.noop][INFO] - :moai: No data augmentation being used.
+[2025-03-13 16:42:16,001][py.warnings][WARNING] - :moai: c:\Users\tsele\anaconda3\envs\elena_env\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=31` in the `DataLoader` to improve performance.
+

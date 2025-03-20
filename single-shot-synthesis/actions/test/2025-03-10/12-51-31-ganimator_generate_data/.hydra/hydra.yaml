@@ -1,0 +1,189 @@
+hydra:
+  run:
+    dir: actions/test/${now:%Y-%m-%d}/${now:%H-%M-%S}-${oc.select:experiment.name,moai-run}
+  sweep:
+    dir: multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num}
+  launcher:
+    _target_: hydra._internal.core_plugins.basic_launcher.BasicLauncher
+  sweeper:
+    _target_: hydra._internal.core_plugins.basic_sweeper.BasicSweeper
+    max_batch_size: null
+    params: null
+  help:
+    app_name: ${hydra.job.name}
+    header: '${hydra.help.app_name} is powered by Hydra.
+
+      '
+    footer: 'Powered by Hydra (https://hydra.cc)
+
+      Use --hydra-help to view Hydra specific help
+
+      '
+    template: '${hydra.help.header}
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (group=option)
+
+
+      $APP_CONFIG_GROUPS
+
+
+      == Config ==
+
+      Override anything in the config (foo.bar=value)
+
+
+      $CONFIG
+
+
+      ${hydra.help.footer}
+
+      '
+  hydra_help:
+    template: 'Hydra (${hydra.runtime.version})
+
+      See https://hydra.cc for more info.
+
+
+      == Flags ==
+
+      $FLAGS_HELP
+
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (For example, append hydra/job_logging=disabled
+      to command line)
+
+
+      $HYDRA_CONFIG_GROUPS
+
+
+      Use ''--cfg hydra'' to Show the Hydra config.
+
+      '
+    hydra_help: ???
+  hydra_logging:
+    version: 1
+    formatters:
+      colorlog:
+        (): colorlog.ColoredFormatter
+        format: '[%(cyan)s%(asctime)s%(reset)s][%(purple)sHYDRA%(reset)s] %(message)s'
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: colorlog
+        stream: ext://sys.stdout
+    root:
+      level: INFO
+      handlers:
+      - console
+    disable_existing_loggers: false
+  job_logging:
+    version: 1
+    formatters:
+      simple:
+        format: '[%(asctime)s][%(name)s][%(levelname)s] - %(message)s'
+      colorlog:
+        (): colorlog.ColoredFormatter
+        format: '[%(cyan)s%(asctime)s%(reset)s][%(blue)s%(name)s%(reset)s][%(log_color)s%(levelname)s%(reset)s]
+          - %(message)s'
+        log_colors:
+          DEBUG: purple
+          INFO: green
+          WARNING: yellow
+          ERROR: red
+          CRITICAL: red
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: colorlog
+        stream: ext://sys.stdout
+      file:
+        class: logging.FileHandler
+        formatter: simple
+        filename: ${hydra.job.name}.log
+    root:
+      level: INFO
+      handlers:
+      - console
+      - file
+    disable_existing_loggers: false
+  env: {}
+  mode: RUN
+  searchpath: []
+  callbacks: {}
+  output_subdir: .hydra
+  overrides:
+    hydra:
+    - hydra.job.chdir=True
+    - hydra.run.dir=actions/test/${now:%Y-%m-%d}/${now:%H-%M-%S}-${oc.select:experiment.name,moai-run}
+    - hydra.mode=RUN
+    task:
+    - export_filepath=C:/Users/tsele/Documents/Mixamo/npz
+    - +bvh_filename=C:/Users/tsele/Documents/Mixamo/Salsa-Dancing-6.bvh
+    - +mode=run
+    - +action=test
+  job:
+    name: run
+    chdir: true
+    override_dirname: +action=test,+bvh_filename=C:/Users/tsele/Documents/Mixamo/Salsa-Dancing-6.bvh,+mode=run,export_filepath=C:/Users/tsele/Documents/Mixamo/npz
+    id: ???
+    num: ???
+    config_name: main
+    env_set: {}
+    env_copy: []
+    config:
+      override_dirname:
+        kv_sep: '='
+        item_sep: ','
+        exclude_keys: []
+  runtime:
+    version: 1.3.2
+    version_base: '1.3'
+    cwd: C:\Users\tsele\Documents\GitHub\Blendanim\single-shot-synthesis
+    config_sources:
+    - path: hydra.conf
+      schema: pkg
+      provider: hydra
+    - path: C:\Users\tsele\Documents\GitHub\Blendanim\single-shot-synthesis\conf/data
+      schema: file
+      provider: main
+    - path: hydra_plugins.hydra_colorlog.conf
+      schema: pkg
+      provider: hydra-colorlog
+    - path: moai.conf
+      schema: pkg
+      provider: moai-searchpath-plugin
+    - path: C:\Users\tsele\Documents\GitHub\Blendanim\single-shot-synthesis\conf
+      schema: file
+      provider: cwd-conf-searchpath-plugin
+    - path: ''
+      schema: structured
+      provider: schema
+    output_dir: C:\Users\tsele\Documents\GitHub\Blendanim\single-shot-synthesis\actions\test\2025-03-10\12-51-31-ganimator_generate_data
+    choices:
+      model/monitors/exporting/local: append_npz
+      model/monads/human/pose: forward_kinematics
+      model/monads/sampling: interpolate
+      model/monads/tensor: alias
+      model/monads/math: deg2rad
+      model: moai
+      src/data/test: bvh
+      data/test/iterator: indexed
+      data/test/loader: torch
+      engine/loggers: tabular
+      engine/modules: import
+      engine/runner: lightning
+      hydra/env: default
+      hydra/callbacks: null
+      hydra/job_logging: colorlog
+      hydra/hydra_logging: colorlog
+      hydra/hydra_help: default
+      hydra/help: default
+      hydra/sweeper: basic
+      hydra/launcher: basic
+      hydra/output: default
+  verbose: false

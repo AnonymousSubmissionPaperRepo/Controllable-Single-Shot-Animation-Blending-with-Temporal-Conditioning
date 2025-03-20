@@ -53,6 +53,7 @@ defaults:
         simple_velocity_val,
         integrate_velocity,
         to_smplh,
+        spade,
       ]
 
   - model/modifications: forward_mode
@@ -92,6 +93,7 @@ defaults:
 
   ###### MONITOR
   - src/exporters: bvh
+  - model/monitors/visualization/rerun: [config, keypoints]
 
   - util
   - data
@@ -102,3 +104,4 @@ defaults:
 
   - override hydra/hydra_logging: moai
   - override hydra/job_logging: moai
+

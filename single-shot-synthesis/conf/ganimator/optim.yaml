@@ -98,6 +98,7 @@ _moai_:
             gt:
               - motion_data_level_x
               - motion_data_level_y
+              - skeleton_id_map_level_x
             pred:
               - fake.stage0
               - fake.stage1
@@ -109,6 +110,7 @@ _moai_:
           L1:
             gt:
               - motion_data_level_x
+              - skeleton_id_map_level_x
             pred:
               - fake.stage0
             _weight_:

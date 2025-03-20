@@ -1,0 +1,7 @@
+- npz_filename=C:/Users/tsele/Documents/Mixamo/npz/00000.npz
+- export_filepath=C:/Users/tsele/Documents/Mixamo/generated/bvh
+- bvh_filename=salsa_dance_variant
+- +mdm_ckpt=C:/Users/tsele/Documents/t2m/text_mot_match/model/finest.tar
+- CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-02-28/18-36-13-ganimator_experiment/ganimator_experiment/version_0/checkpoints/last.ckpt
+- +mode=run
+- +action=test

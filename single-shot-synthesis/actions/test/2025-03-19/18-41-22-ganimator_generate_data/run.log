@@ -1,0 +1,3 @@
+[2025-03-19 18:41:22,527][moai.engine.modules.importer][INFO] - Adding current working directory [C:\Users\tsele\Documents\GitHub\Blendanim\single-shot-synthesis] to path.
+[2025-03-19 18:41:22,529][moai.engine.modules.seed][WARNING] - No seed was manually specified, seed set randomly to 860380067
+[2025-03-19 18:41:22,935][moai.core.execution.monads][ERROR] - The parameters [{'skeleton', 'motion'}] are not part of the `get_pyramid_lengths` monad signature (['tensor']).

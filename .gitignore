@@ -1,0 +1,2 @@
+*.ckpt
+single-shot-synthesis/actions/fit/*

@@ -3,6 +3,7 @@ import typing
 import torch
 from moai.nn.convolution import make_conv_block
 from moai.utils.iterators import pairwise
+from src.monads.utils.spade import Spade
 
 
 class SkeletonBlock(torch.nn.Module):
@@ -143,35 +144,61 @@ class Generator(torch.nn.Module):
         num_features = (len(parents) + len(contacts) + 1) * 6
         channels = get_channels_list(num_features)
         for _ in range(stages):
-            self.stages.append(
-                SkeletonBlock(
-                    neighbors,
-                    channels,
-                    kernel_size=kernel_size,
-                    padding_mode=padding_mode,
-                    padding=padding,
-                    bias=bias,
-                    activation_type="lrelu",
-                )
+            
+            skeleton_block = SkeletonBlock(
+                neighbors,
+                channels,
+                kernel_size=kernel_size,
+                padding_mode=padding_mode,
+                padding=padding,
+                bias=bias,
+                activation_type="lrelu",
             )
+            self.stages.append(skeleton_block)
+
+            
+            spade = Spade(
+                parents,
+                contacts,
+                kernel_size=kernel_size,
+                padding_mode=padding_mode,
+                bias=bias,
+            )
+            self.stages.append(spade)
+            
 
     def forward(
         self,
         noise0: torch.Tensor,
         generated: torch.Tensor,
+        skeleton_id_map: torch.Tensor,
         noise1: torch.Tensor = None,
     ) -> typing.Dict[str, torch.Tensor]:
         out = []
-        for i, stage in enumerate(self.stages):
+        for i in range(0, len(self.stages), 2):  # Iterate in pairs (SkeletonBlock, Spade)
+            skeleton_block = self.stages[i]  # Get SkeletonBlock
+            spade = self.stages[i + 1]  # Get Spade
+            
             if i > 0:
                 generated = torch.nn.functional.interpolate(
                     generated, size=noise1.shape[-1], mode="linear", align_corners=False
                 )
+                skeleton_id_map = torch.nn.functional.interpolate(
+                    skeleton_id_map, size=noise1.shape[-1], mode="linear", align_corners=False
+                )
+
                 generated = generated.detach()
-                generated = stage(generated + noise1) + generated
+                skeleton_id_map = skeleton_id_map.detach()
+
+                # Use the correct module separately
+                generated = skeleton_block(generated + noise1) + generated
+                generated = spade(generated, skeleton_id_map)
             else:
-                generated = stage(generated + noise0) + generated
+                generated = skeleton_block(generated + noise0) + generated
+                generated = spade(generated, skeleton_id_map)
+                
             out.append(generated)
+
         return {"stage0": out[0], "stage1": out[1] if noise1 is not None else None}
 
 

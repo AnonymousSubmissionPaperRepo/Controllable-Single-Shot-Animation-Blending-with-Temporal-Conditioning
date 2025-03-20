@@ -36,6 +36,8 @@ data:
     loader:
       shuffle: false
       drop_last: false
+      num_workers: 0  # Set to 0 if you want to disable multiprocessing
+      prefetch_factor: null  # Remove or set a valid value if num_workers > 0
     iterator:
       datasets:
         bvh:

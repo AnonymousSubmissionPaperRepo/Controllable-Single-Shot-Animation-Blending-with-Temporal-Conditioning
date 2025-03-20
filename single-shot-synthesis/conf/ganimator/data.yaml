@@ -5,6 +5,9 @@ train_data_iter: 15000
 
 data:
   train:
+    loader:
+      num_workers: 0  # Set to 0 to disable multiprocessing
+      prefetch_factor: null  # Set a value or remove it if num_workers <= 0
     iterator:
       datasets:
         repeated_npz:
@@ -14,6 +17,8 @@ data:
   val:
     loader:
       batch_size: 1
+      num_workers: 0  # Set to 0 to disable multiprocessing
+      prefetch_factor: null  # Set a value or remove it if num_workers <= 0
     iterator:
       datasets:
         repeated_npz:
@@ -21,8 +26,11 @@ data:
           length:  200 #must be greater than 1 for the FID computation
 
   test:
+    loader:
+      num_workers: 0  # Set to 0 to disable multiprocessing
+      prefetch_factor: null  # Set a value or remove it if num_workers <= 0
     iterator:
       datasets:
         repeated_npz:
           filename: ${npz_filename}
-          length: 1
+          length: 5

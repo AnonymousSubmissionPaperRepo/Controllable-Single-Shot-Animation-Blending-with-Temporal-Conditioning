@@ -1,0 +1,11 @@
+[2025-03-19 16:45:07,524][moai.engine.modules.importer][INFO] - Adding current working directory [C:\Users\tsele\Documents\GitHub\Blendanim\single-shot-synthesis] to path.
+[2025-03-19 16:45:07,525][moai.engine.modules.seed][WARNING] - No seed was manually specified, seed set randomly to 1510077882
+[2025-03-19 16:45:07,681][moai.core.execution.monads][ERROR] - The following monads [['skeleton']] were not found in the configuration and will be ignored!
+[2025-03-19 16:45:29,630][moai.core.execution.monads][WARNING] - Skipping monad 'skeleton' as it is not found in the configuration. This may lead to downstream errors.
+[2025-03-19 16:45:29,910][moai.action.run][INFO] - Evaluation started.
+[2025-03-19 16:45:29,910][moai.action.run][WARNING] - No checkpoint path provided, test will be done with custom initialization if present.
+[2025-03-19 16:45:29,917][moai.core.model][INFO] - Instantiating (Indexed) test set data iterator
+[2025-03-19 16:45:29,967][src.data.bvh][INFO] - Loaded 1 (BVH) motion samples from C:/Users/tsele/Documents/Mixamo/dataset/0006_Salsa_Dancing.bvh.
+[2025-03-19 16:45:29,968][moai.data.augmentation.noop][INFO] - No data augmentation being used.
+[2025-03-19 16:45:29,972][py.warnings][WARNING] - c:\Users\tsele\anaconda3\envs\elena_env\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=31` in the `DataLoader` to improve performance.
+

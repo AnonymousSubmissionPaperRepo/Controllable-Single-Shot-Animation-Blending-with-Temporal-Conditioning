@@ -31,6 +31,13 @@ _moai_:
                 - root_position
                 - joint_offsets
                 - joint_parents
+                - skeleton_id_map_level_6
+                - skeleton_id_map_level_5
+                - skeleton_id_map_level_4
+                - skeleton_id_map_level_3
+                - skeleton_id_map_level_2
+                - skeleton_id_map_level_1
+                - skeleton_id_map_level_0
             combined:
               - true
             compressed:
