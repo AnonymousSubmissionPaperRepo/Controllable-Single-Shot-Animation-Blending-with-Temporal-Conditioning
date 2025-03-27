@@ -1,0 +1,10 @@
+[2025-03-25 23:24:20,226][moai.engine.modules.importer][INFO] - Adding current working directory [C:\Users\tsele\Documents\GitHub\Blendanim\single-shot-synthesis] to path.
+[2025-03-25 23:24:20,227][moai.engine.modules.seed][WARNING] - No seed was manually specified, seed set randomly to 3561976514
+[2025-03-25 23:24:20,808][moai.action.run][INFO] - Evaluation started.
+[2025-03-25 23:24:20,809][moai.action.run][WARNING] - No checkpoint path provided, test will be done with custom initialization if present.
+[2025-03-25 23:24:20,815][moai.core.model][INFO] - Instantiating (Indexed) test set data iterator
+[2025-03-25 23:24:20,886][src.data.bvh][INFO] - Loaded 1 (BVH) motion samples from C:/Users/tsele/Documents/Mixamo/dataset/0007_Swing_Dancing.bvh.
+[2025-03-25 23:24:20,887][moai.data.augmentation.noop][INFO] - No data augmentation being used.
+[2025-03-25 23:24:20,890][py.warnings][WARNING] - c:\Users\tsele\anaconda3\envs\elena_env\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:441: The 'test_dataloader' does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` to `num_workers=31` in the `DataLoader` to improve performance.
+
+[2025-03-25 23:30:05,143][moai.monads.sampling.torch.interpolate][ERROR] - Either scale (0.0) or dimensions ([0 x 1]) need to be set for Interpolate.

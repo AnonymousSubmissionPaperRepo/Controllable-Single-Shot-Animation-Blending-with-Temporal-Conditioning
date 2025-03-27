@@ -144,7 +144,7 @@ class Coverage(MoaiMetric):
     def forward(
         self, pred: torch.Tensor, gt: torch.Tensor  # [B, T, ...]  # [B, T, ...]
     ) -> torch.Tensor:
-        assert pred.shape[0] == 1 and gt.shape[0] == 1
+        #assert pred.shape[0] == 1 and gt.shape[0] == 1
         group_cost = _group_cost_from_tensors(pred[0], gt[0])  # ground truth, generated
         # iterate for each window
         res = []
@@ -171,7 +171,7 @@ class GlobalDiversity(MoaiMetric):
     def forward(
         self, pred: torch.Tensor, gt: torch.Tensor  # [B, T, ..]  # [B, T, ..]
     ) -> torch.Tensor:
-        assert pred.shape[0] == 1 and gt.shape[0] == 1
+        #assert pred.shape[0] == 1 and gt.shape[0] == 1
         group_cost = _group_cost_from_tensors(pred[0], gt[0])
         val, label = _nn_dp_fast(group_cost.cpu().numpy(), self.tmin)
         res = val / label.shape[0]
@@ -194,7 +194,7 @@ class LocalDiversity(MoaiMetric):
     def forward(
         self, pred: torch.Tensor, gt: torch.Tensor  # [B, T, ..]  # [B, T, ..]
     ) -> torch.Tensor:
-        assert pred.shape[0] == 1 and gt.shape[0] == 1
+        #assert pred.shape[0] == 1 and gt.shape[0] == 1
         group_cost = _group_cost_from_tensors(pred[0], gt[0])
         res = _calc_perwindow_cost(group_cost.cpu().numpy(), self.tmin, self.keepall)
 

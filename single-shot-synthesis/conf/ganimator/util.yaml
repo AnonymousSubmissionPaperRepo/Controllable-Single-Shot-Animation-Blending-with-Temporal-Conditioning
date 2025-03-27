@@ -3,7 +3,7 @@
 CKPT: "."
 
 experiment:
-  batch_size: 1
+  batch_size: 2
   workers: 0
   name: ganimator_experiment
 

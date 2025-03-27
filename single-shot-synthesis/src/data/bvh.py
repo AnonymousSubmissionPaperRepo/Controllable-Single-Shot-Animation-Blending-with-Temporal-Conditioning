@@ -26,8 +26,12 @@ class BioVisionHierarchyFile(torch.utils.data.Dataset):
         assert_path(log, "BVH file", filename)
         pos, euler, off, self.parents, self.joint_names, self.timestep = load(filename)
         timescale = round(1.0 / fps / self.timestep)
-        pos = pos[::timescale]
-        euler = euler[::timescale]
+        # pos = pos[::timescale]
+        # euler = euler[::timescale]
+
+        pos = pos[:360]  #360 because are the frames for salsa dancing
+        euler = euler[:360]
+
         self.positions = pos.astype(np.float32) * scale
         self.joint_offsets = off.astype(np.float32) * scale
         T, J, _ = euler.shape
