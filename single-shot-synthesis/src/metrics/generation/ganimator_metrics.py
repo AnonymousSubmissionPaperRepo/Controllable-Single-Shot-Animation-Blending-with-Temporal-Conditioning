@@ -141,25 +141,42 @@ class Coverage(MoaiMetric):
         self.tmin = tmin
         self.threshold = threshold
 
+    # def forward(
+    #     self, pred: torch.Tensor, gt: torch.Tensor  # [B, T, ...]  # [B, T, ...]
+    # ) -> torch.Tensor:
+    #     #assert pred.shape[0] == 1 and gt.shape[0] == 1
+    #     group_cost = _group_cost_from_tensors(pred[0], gt[0])  # ground truth, generated
+    #     # iterate for each window
+    #     res = []
+    #     for i in range(group_cost.shape[0] - self.tmin):
+    #         cost = torch.min(group_cost[i, i + self.tmin]) / self.tmin
+    #         res.append(1.0 if cost < self.threshold else 0.0)
+    #     return torch.mean(torch.Tensor([res]))
+
     def forward(
         self, pred: torch.Tensor, gt: torch.Tensor  # [B, T, ...]  # [B, T, ...]
     ) -> torch.Tensor:
         #assert pred.shape[0] == 1 and gt.shape[0] == 1
-        group_cost = _group_cost_from_tensors(pred[0], gt[0])  # ground truth, generated
-        # iterate for each window
-        res = []
-        for i in range(group_cost.shape[0] - self.tmin):
-            cost = torch.min(group_cost[i, i + self.tmin]) / self.tmin
-            res.append(1.0 if cost < self.threshold else 0.0)
-        return torch.mean(torch.Tensor([res]))
+        batch_res = []
+        for b in range(pred.shape[0]):
+            group_cost = _group_cost_from_tensors(pred[b], gt[b])  # ground truth, generated
+            # iterate for each window
+            res = []
+            for i in range(group_cost.shape[0] - self.tmin):
+                cost = torch.min(group_cost[i, i + self.tmin]) / self.tmin
+                res.append(1.0 if cost < self.threshold else 0.0)
+            batch_res.append(res)
 
+        flat_res = [v for r in batch_res for v in r]    
+        return torch.mean(torch.Tensor([flat_res]))
+    
     def compute(
         self,
         coverages: typing.Sequence[np.ndarray],
     ) -> typing.Union[np.ndarray, typing.Mapping[str, np.ndarray]]:
         return sum(coverages) / len(coverages)
 
-
+    
 class GlobalDiversity(MoaiMetric):
     def __init__(
         self,
@@ -168,15 +185,28 @@ class GlobalDiversity(MoaiMetric):
         super().__init__()
         self.tmin = tmin
 
+    # def forward(
+    #     self, pred: torch.Tensor, gt: torch.Tensor  # [B, T, ..]  # [B, T, ..]
+    # ) -> torch.Tensor:
+    #     #assert pred.shape[0] == 1 and gt.shape[0] == 1
+    #     group_cost = _group_cost_from_tensors(pred[0], gt[0])
+    #     val, label = _nn_dp_fast(group_cost.cpu().numpy(), self.tmin)
+    #     res = val / label.shape[0]
+
+    #     return torch.from_numpy(np.array(res)).to(pred.device)
+
     def forward(
         self, pred: torch.Tensor, gt: torch.Tensor  # [B, T, ..]  # [B, T, ..]
     ) -> torch.Tensor:
         #assert pred.shape[0] == 1 and gt.shape[0] == 1
-        group_cost = _group_cost_from_tensors(pred[0], gt[0])
-        val, label = _nn_dp_fast(group_cost.cpu().numpy(), self.tmin)
-        res = val / label.shape[0]
+        batch_res = []
+        for b in range(pred.shape[0]):
+            group_cost = _group_cost_from_tensors(pred[b], gt[b])
+            val, label = _nn_dp_fast(group_cost.cpu().numpy(), self.tmin)
+            res = val / label.shape[0]
+            batch_res.append(res)
 
-        return torch.from_numpy(np.array(res)).to(pred.device)
+        return torch.mean(torch.from_numpy(np.array(batch_res)).to(pred.device))
 
     def compute(
         self,
@@ -191,14 +221,28 @@ class LocalDiversity(MoaiMetric):
         self.tmin = tmin
         self.keepall = keepall
 
+    # def forward(
+    #     self, pred: torch.Tensor, gt: torch.Tensor  # [B, T, ..]  # [B, T, ..]
+    # ) -> torch.Tensor:
+    #     #assert pred.shape[0] == 1 and gt.shape[0] == 1
+    #     group_cost = _group_cost_from_tensors(pred[0], gt[0])
+    #     res = _calc_perwindow_cost(group_cost.cpu().numpy(), self.tmin, self.keepall)
+
+    #     return torch.from_numpy(np.array(res)).to(pred.device)
+
     def forward(
         self, pred: torch.Tensor, gt: torch.Tensor  # [B, T, ..]  # [B, T, ..]
     ) -> torch.Tensor:
         #assert pred.shape[0] == 1 and gt.shape[0] == 1
-        group_cost = _group_cost_from_tensors(pred[0], gt[0])
-        res = _calc_perwindow_cost(group_cost.cpu().numpy(), self.tmin, self.keepall)
+        batch_res = []
+        for b in range(pred.shape[0]):
+            group_cost = _group_cost_from_tensors(pred[b], gt[b])
+            res = _calc_perwindow_cost(group_cost.cpu().numpy(), self.tmin, self.keepall)
+            batch_res.append(res)   
+        
+        return torch.mean(torch.from_numpy(np.array(batch_res)).to(pred.device))
 
-        return torch.from_numpy(np.array(res)).to(pred.device)
+
 
     def compute(
         self,

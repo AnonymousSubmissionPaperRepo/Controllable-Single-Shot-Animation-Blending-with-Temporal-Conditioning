@@ -62,9 +62,10 @@ _moai_:
             - ${mi:"cat(joint_rotations_sixd_flat, contact_labels_flat, root_features, zero_position, -1)"}
             - ${mi:"zeros(motion_data)"}
             - ${mi:"ones(motion_data)"}
-            - ${mi:"skeleton_id_map_zeros[:, 0:180,:]"}
-            - ${mi:"skeleton_id_map_ones[:, 0:180,:]"}
+            - ${mi:"skeleton_id_map_zeros[:, 0:120,:]"}
+            - ${mi:"skeleton_id_map_ones[:, 0:120,:]"}
             - ${mi:"cat(skeleton_id_map_zeros_cut, skeleton_id_map_ones_cut, -2)"}
+            - ${mi:"cat(skeleton_id_map, skeleton_id_map_zeros_cut, -2)"}
 
           _out_:
             - zero_position
@@ -75,6 +76,7 @@ _moai_:
             - skeleton_id_map_ones
             - skeleton_id_map_zeros_cut
             - skeleton_id_map_ones_cut
+            - skeleton_id_map
             - skeleton_id_map
         get_pyramid_lengths:
           tensor:

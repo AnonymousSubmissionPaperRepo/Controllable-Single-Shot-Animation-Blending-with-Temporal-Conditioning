@@ -29,8 +29,8 @@ _moai_:
             gt: [clips_embeds_gt]
             _out_: [mdm_ldiv]
           fid:
-            pred: [motion_embed]
-            gt: [motion_embed_gt]
+            pred: [clips_embeds]
+            gt: [clips_embeds_gt]
             _out_: [fid]
       _monitors_:
         export_generated_skeleton:

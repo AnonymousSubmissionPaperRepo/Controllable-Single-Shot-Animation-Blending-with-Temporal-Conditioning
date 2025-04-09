@@ -2,8 +2,8 @@ defaults:
   ###### ENGINE
   - engine/runner: lightning
   - engine/runner/checkpoint: lightning
-  - engine/modules: [manual_seed, import, numpy]
-  - engine/loggers: tabular
+  - engine/modules: [manual_seed, import, clearml, numpy]
+  - engine/loggers: clearml #tabular
 
   ###### DATA
   - data/train/loader: torch
@@ -93,7 +93,7 @@ defaults:
 
   ###### MONITOR
   - src/exporters: bvh
-  - model/monitors/visualization/rerun: [config, keypoints]
+  # - model/monitors/visualization/rerun: [config, keypoints]
 
   - util
   - data
