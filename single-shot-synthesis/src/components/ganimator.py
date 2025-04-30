@@ -3,6 +3,7 @@ import typing
 import torch
 from moai.nn.convolution import make_conv_block
 from moai.utils.iterators import pairwise
+from moai.nn.normalization import AdaIN
 from src.monads.utils.spade import Spade
 
 
@@ -164,6 +165,7 @@ class Generator(torch.nn.Module):
                 padding_mode=padding_mode,
                 bias=bias,
             )
+            
             self.stages.append(spade)
             
 
@@ -191,16 +193,70 @@ class Generator(torch.nn.Module):
                 skeleton_id_map = skeleton_id_map.detach()
 
                 # Use the correct module separately
+                
                 generated = skeleton_block(generated + noise1) + generated
-                generated = spade(generated, skeleton_id_map)
+                generated = spade(generated, skeleton_id_map) #this was below, now try first doing the spade
+                
             else:
+                #generated = spade(generated, skeleton_id_map) #also above to check
                 generated = skeleton_block(generated + noise0) + generated
-                generated = spade(generated, skeleton_id_map)
+                generated = spade(generated, skeleton_id_map) #also above to check
+
+                
                 
             out.append(generated)
 
         return {"stage0": out[0], "stage1": out[1] if noise1 is not None else None}
 
+######### Without Spade ##########
+
+class Generator_old(torch.nn.Module):
+    def __init__(
+        self,
+        parents: typing.Sequence[int],
+        contacts: typing.Sequence[int],
+        kernel_size: int,
+        padding_mode="reflect",
+        bias=True,
+        stages: int = 2,
+    ):
+        super().__init__()
+        padding = (kernel_size - 1) // 2
+        self.stages = torch.nn.ModuleList()
+        neighbors = get_neighbor(parents, contacts, threshold=2, enforce_contact=True)
+        num_features = (len(parents) + len(contacts) + 1) * 6
+        channels = get_channels_list(num_features)
+        for _ in range(stages):
+            self.stages.append(
+                SkeletonBlock(
+                    neighbors,
+                    channels,
+                    kernel_size=kernel_size,
+                    padding_mode=padding_mode,
+                    padding=padding,
+                    bias=bias,
+                    activation_type="lrelu",
+                )
+            )
+
+    def forward(
+        self,
+        noise0: torch.Tensor,
+        generated: torch.Tensor,
+        noise1: torch.Tensor = None,
+    ) -> typing.Dict[str, torch.Tensor]:
+        out = []
+        for i, stage in enumerate(self.stages):
+            if i > 0:
+                generated = torch.nn.functional.interpolate(
+                    generated, size=noise1.shape[-1], mode="linear", align_corners=False
+                )
+                generated = generated.detach()
+                generated = stage(generated + noise1) + generated
+            else:
+                generated = stage(generated + noise0) + generated
+            out.append(generated)
+        return {"stage0": out[0], "stage1": out[1] if noise1 is not None else None}
 
 class Discriminator(torch.nn.Module):
     def __init__(

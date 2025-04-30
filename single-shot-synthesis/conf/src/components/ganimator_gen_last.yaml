@@ -1,6 +1,6 @@
 # @package model.components.gen_s4
 
-_target_: src.components.ganimator.Generator
+_target_: src.components.ganimator.Generator_old
 parents: ??? # int[]
 contacts: ??? # int[]
 kernel_size: 5

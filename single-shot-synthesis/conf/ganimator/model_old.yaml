@@ -139,6 +139,7 @@ _moai_:
       gen_s1: &gen_exec
         noise0: [noise_level_0]
         noise1: [noise_level_1]
+        skeleton_id_map: [skeleton_id_map_level_x]
         generated: [prev]
         _out_: [fake]
 
@@ -154,6 +155,7 @@ _moai_:
 
       gen_s4:
         noise0: [noise_level_6]
+        skeleton_id_map: [skeleton_id_map_level_x]
         generated: [prev]
         _out_: [fake]
 
@@ -209,10 +211,14 @@ _moai_:
             - motion_data_level_0
             - motion_data_level_1
             - ${mi:"zeros(motion_data_level_0)"}
+            - skeleton_id_map_level_0
+            - skeleton_id_map_level_1
           _out_:
             - motion_data_level_x
             - motion_data_level_y
             - prev
+            - skeleton_id_map_level_x
+            - skeleton_id_map_level_y
 
       stage_1_reco:
         _mi_:
@@ -232,9 +238,13 @@ _moai_:
           expression:
             - motion_data_level_2
             - motion_data_level_3
+            - skeleton_id_map_level_2
+            - skeleton_id_map_level_3
           _out_:
             - motion_data_level_x
             - motion_data_level_y
+            - skeleton_id_map_level_x
+            - skeleton_id_map_level_y
 
       stage_2_reco:
         _mi_:
@@ -254,9 +264,13 @@ _moai_:
           expression:
             - motion_data_level_4
             - motion_data_level_5
+            - skeleton_id_map_level_4
+            - skeleton_id_map_level_5
           _out_:
             - motion_data_level_x
             - motion_data_level_y
+            - skeleton_id_map_level_x
+            - skeleton_id_map_level_y
 
       stage_3_reco:
         _mi_:
@@ -275,8 +289,10 @@ _moai_:
         _mi_:
           expression:
             - motion_data_level_6
+            - skeleton_id_map_level_6
           _out_:
             - motion_data_level_x
+            - skeleton_id_map_level_x
 
       stage_4_reco:
         _mi_:
@@ -293,12 +309,16 @@ _moai_:
             - motion_data_level_0
             - motion_data_level_1
             - ${mi:"zeros(motion_data_level_0)"}
+            - skeleton_id_map_level_0
+            - skeleton_id_map_level_1
           _out_:
             - noise_level_0
             - noise_level_1
             - motion_data_level_x
             - motion_data_level_y
             - prev
+            - skeleton_id_map_level_x
+            - skeleton_id_map_level_y
 
       stage_2_val:
         interpolate:
@@ -311,11 +331,15 @@ _moai_:
             - ${mi:"zeros(motion_data_level_3)"}
             - motion_data_level_2
             - motion_data_level_3
+            - skeleton_id_map_level_2
+            - skeleton_id_map_level_3
           _out_:
             - noise_level_2
             - noise_level_3
             - motion_data_level_x
             - motion_data_level_y
+            - skeleton_id_map_level_x
+            - skeleton_id_map_level_y
 
       stage_3_val:
         interpolate:
@@ -328,11 +352,15 @@ _moai_:
             - ${mi:"zeros(motion_data_level_5)"}
             - motion_data_level_4
             - motion_data_level_5
+            - skeleton_id_map_level_4
+            - skeleton_id_map_level_5
           _out_:
             - noise_level_4
             - noise_level_5
             - motion_data_level_x
             - motion_data_level_y
+            - skeleton_id_map_level_x
+            - skeleton_id_map_level_y
 
       stage_4_val:
         interpolate:
@@ -343,9 +371,11 @@ _moai_:
           expression:
             - ${mi:"zeros(motion_data_level_6)"}
             - motion_data_level_6
+            - skeleton_id_map_level_6
           _out_:
             - noise_level_6
             - motion_data_level_x
+            - skeleton_id_map_level_x
 
       disc_prediscrimination:
         random:
@@ -635,3 +665,16 @@ _moai_:
           offsets: [joint_offsets, joint_offsets]
           parents: [joint_parents, joint_parents]
           _out_: [fk_0_pred, fk_0_gt]
+        _mi_:
+          expression:
+            - ${mi:"global_root_position_0[:,0:180,:]"}
+            - ${mi:"global_root_position_0[:,180:360,:]"}
+            - ${mi:"demuxed_joint_euler_0[:,0:180, :]"}
+            - ${mi:"demuxed_joint_euler_0[:,180:360,:]"}
+          _out_:
+            - global_root_position_0_x
+            - global_root_position_0_y
+            - demuxed_joint_euler_0_x
+            - demuxed_joint_euler_0_y
+
+

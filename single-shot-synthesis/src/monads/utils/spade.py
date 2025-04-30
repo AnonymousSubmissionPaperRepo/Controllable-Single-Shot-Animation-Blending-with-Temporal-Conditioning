@@ -21,7 +21,10 @@ class Spade(torch.nn.Module):
         neighbors = ganimator.get_neighbor(parents, contacts, threshold=2, enforce_contact=True)
         num_features = (len(parents) + len(contacts) + 1) * 6
         channels = ganimator.get_channels_list(num_features)
-        
+
+        #self.norm = torch.nn.BatchNorm1d(num_features, affine=False)
+        #self.norm = torch.nn.InstanceNorm1d(num_features, affine=False)
+
         self.gamma = ganimator.SkeletonBlock(
             neighbors,
             channels,
@@ -47,8 +50,11 @@ class Spade(torch.nn.Module):
         x: torch.Tensor,
         skeleton_id_map: torch.Tensor,
     ) -> torch.Tensor:
+        
+        #x = self.norm(x)
         gamma = self.gamma(skeleton_id_map)
         beta = self.beta(skeleton_id_map)
+        #return x * (gamma) + beta
         return x * (1 + gamma) + beta
             
         
