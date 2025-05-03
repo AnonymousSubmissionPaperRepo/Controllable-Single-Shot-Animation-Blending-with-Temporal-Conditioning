@@ -23,7 +23,7 @@ defaults:
   - src/components:
       [
         ganimator_gen,
-        ganimator_gen_spade,
+        #ganimator_gen_spade, #it is not needed for the last experiment 
         ganimator_gen_last,
         ganimator_disc,
         ganimator_disc_last,

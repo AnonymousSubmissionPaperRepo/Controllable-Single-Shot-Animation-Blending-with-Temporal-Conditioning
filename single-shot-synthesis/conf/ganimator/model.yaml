@@ -2,7 +2,7 @@
 
 feet_indices: &contacts [4, 5, 9, 10]
 
-gen_prototype: &gen_template ${model.components.gen_s2}
+gen_prototype: &gen_template ${model.components.gen_s1}
 disc_prototype: &disc_template ${model.components.disc_s1}
 
 model:
@@ -63,10 +63,10 @@ model:
           22,
         ]
       contacts: *contacts
-    gen_s2: 
-      parents: *parents
-      contacts: *contacts
+    gen_s2: *gen_template
     gen_s3: *gen_template
+      # parents: *parents
+      # contacts: *contacts
     gen_s4:
       parents: *parents
       contacts: *contacts
@@ -138,28 +138,29 @@ model:
 _moai_:
   _definitions_:
     _flows_:
-      gen_s1: 
+      gen_s1: &gen_exec
         noise0: [noise_level_0]
         noise1: [noise_level_1]
-        skeleton_id_map: [skeleton_id_map_level_x]
+        #skeleton_id_map: [skeleton_id_map_level_x]
         generated: [prev]
         _out_: [fake]
 
-      gen_s2: &gen_exec
+      gen_s2: 
         <<: *gen_exec
         noise0: [noise_level_2]
         noise1: [noise_level_3]
-        generated: [prev]
-        _out_: [fake]
 
       gen_s3:
         <<: *gen_exec
         noise0: [noise_level_4]
         noise1: [noise_level_5]
+        # skeleton_id_map: [skeleton_id_map_level_x]
+        # generated: [prev]
+        # _out_: [fake]
 
       gen_s4:
         noise0: [noise_level_6]
-        #skeleton_id_map: [skeleton_id_map_level_x]
+        skeleton_id_map: [skeleton_id_map_level_x]
         generated: [prev]
         _out_: [fake]
 

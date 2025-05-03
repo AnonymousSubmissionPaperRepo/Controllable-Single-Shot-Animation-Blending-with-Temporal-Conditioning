@@ -1,4 +1,4 @@
-# @package model.components.gen_s1
+# @package model.components.gen_s3
 
 _target_: src.components.ganimator.Generator
 parents: ??? # int[]

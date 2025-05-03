@@ -81,8 +81,10 @@
                //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-04-16/17-08-05-ganimator_experiment_batch_norm_train_2/GANimator/ganimator_experiment_batch_norm_train_2/checkpoints/last.ckpt" //batch_norm_2
                //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-04-17/09-37-59-ganimator_experiment_without_1_train/GANimator/ganimator_experiment_without_1_train/checkpoints/last.ckpt" //without_one
                //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-04-17/14-44-04-ganimator_experiment_without_1_instance_norm_train/GANimator/ganimator_experiment_without_1_instance_norm_train/checkpoints/last.ckpt" //instance_norm_without_one
-               "CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-04-30/11-03-27-ganimator_experiment_1st_stage/GANimator/ganimator_experiment_1st_stage/checkpoints/last.ckpt" //having spade only at 1st stage
-
+               //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-04-30/11-03-27-ganimator_experiment_1st_stage/GANimator/ganimator_experiment_1st_stage/checkpoints/last.ckpt" //having spade only at 1st stage
+               //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-04-30/18-33-06-ganimator_experiment_2st_stage/GANimator/ganimator_experiment_2st_stage/checkpoints/last.ckpt" //having spade only at the 2nd stage 
+               // "CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-04-30/23-27-39-ganimator_experiment_3rd_stage/GANimator/ganimator_experiment_3rd_stage/checkpoints/last.ckpt" //having spade only at the 3rd stage 
+               "CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-01/10-55-28-ganimator_experiment_4th_stage/GANimator/ganimator_experiment_4th_stage/checkpoints/last.ckpt" //having spade only at the 4th stage 
 
                
             ]
