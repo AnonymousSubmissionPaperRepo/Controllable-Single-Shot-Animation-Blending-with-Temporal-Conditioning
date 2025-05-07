@@ -55,6 +55,7 @@ defaults:
         integrate_velocity,
         to_smplh,
         spade,
+        film,
       ]
 
   - model/modifications: forward_mode

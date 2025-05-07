@@ -2,9 +2,11 @@ import typing
 
 import torch
 from moai.nn.convolution import make_conv_block
+from moai.nn.linear import make_linear_block
 from moai.utils.iterators import pairwise
 from moai.nn.normalization import AdaIN
 from src.monads.utils.spade import Spade
+from src.monads.utils.FiLM import FiLM
 
 
 class SkeletonBlock(torch.nn.Module):
@@ -54,6 +56,53 @@ class SkeletonBlock(torch.nn.Module):
                 "bias": bias,
                 "padding": padding,
                 "padding_mode": padding_mode,
+            },
+        )
+        blocks.append(pred)
+        self.layers = torch.nn.Sequential(*blocks)
+
+    def forward(self, input):
+        for layer in self.layers:
+            input = layer(input)
+        self.output = input
+        return input
+    
+class SkeletonBlockLinear(torch.nn.Module):
+    def __init__(
+        self,
+        neighbors: typing.Sequence[typing.Sequence[int]],
+        channels: typing.Sequence[int],
+        bias=True,
+        activation_type="lrelu",
+    ):
+        super().__init__()
+        blocks = []
+        for cin, cout in pairwise(channels[:-1]):
+
+            block = make_linear_block(
+                "linear",
+                "skeleton",  ### ADD
+                cin,
+                cout,
+                activation_type=activation_type,
+                linear_params={
+                    "neighbour_list": neighbors,
+                    "bias": bias,
+                },
+                activation_params={"inplace": True, "negative_slope": 0.2},
+            )
+
+            blocks.append(block)
+
+        pred = make_linear_block(
+            "linear",
+            "linear" if channels[-1] == 1 else "skeleton",
+            channels[-2],
+            channels[-1],
+            activation_type="none",
+            linear_params={
+                "neighbour_list": neighbors,
+                "bias": bias,
             },
         )
         blocks.append(pred)
@@ -158,11 +207,16 @@ class Generator(torch.nn.Module):
             self.stages.append(skeleton_block)
 
             
-            spade = Spade(
+            # spade = Spade(
+            #     parents,
+            #     contacts,
+            #     kernel_size=kernel_size,
+            #     padding_mode=padding_mode,
+            #     bias=bias,
+            # )
+            spade = FiLM(
                 parents,
                 contacts,
-                kernel_size=kernel_size,
-                padding_mode=padding_mode,
                 bias=bias,
             )
             

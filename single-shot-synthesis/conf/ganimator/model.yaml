@@ -141,7 +141,7 @@ _moai_:
       gen_s1: &gen_exec
         noise0: [noise_level_0]
         noise1: [noise_level_1]
-        #skeleton_id_map: [skeleton_id_map_level_x]
+        skeleton_id_map: [skeleton_id_map_level_x]
         generated: [prev]
         _out_: [fake]
 
