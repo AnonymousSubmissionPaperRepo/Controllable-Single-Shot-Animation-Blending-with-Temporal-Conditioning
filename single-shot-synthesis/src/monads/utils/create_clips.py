@@ -20,7 +20,7 @@ class CreateRandomClips(torch.nn.Module):
 
     def forward(self, motion: torch.Tensor) -> typing.Dict[str, torch.Tensor]:
         max_offset = motion.shape[1] - self.window_size
-        num_clips = motion.shape[1] // self.window_size
+        num_clips = motion.shape[1] // self.window_size #both moves have the same frames
         clips = []
         for b in range(motion.shape[0]):
             for i in range(num_clips):

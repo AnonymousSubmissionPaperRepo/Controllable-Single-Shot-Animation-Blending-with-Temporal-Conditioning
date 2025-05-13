@@ -1,0 +1,4 @@
+- export_filepath=C:/Users/tsele/Documents/Mixamo/npz
+- bvh_filename=C:/Users/tsele/Documents/Mixamo/dataset/0005_Punch_To_Elbow_Combo.bvh
+- +mode=run
+- +action=test

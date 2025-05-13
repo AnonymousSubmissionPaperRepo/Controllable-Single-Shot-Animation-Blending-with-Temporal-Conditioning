@@ -207,18 +207,19 @@ class Generator(torch.nn.Module):
             self.stages.append(skeleton_block)
 
             
-            # spade = Spade(
-            #     parents,
-            #     contacts,
-            #     kernel_size=kernel_size,
-            #     padding_mode=padding_mode,
-            #     bias=bias,
-            # )
-            spade = FiLM(
+            spade = Spade(
                 parents,
                 contacts,
+                kernel_size=kernel_size,
+                padding_mode=padding_mode,
                 bias=bias,
             )
+            # The FiLM normalization layer
+            # spade = FiLM(
+            #     parents,
+            #     contacts,
+            #     bias=bias,
+            # )
             
             self.stages.append(spade)
             

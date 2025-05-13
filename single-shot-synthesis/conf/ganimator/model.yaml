@@ -2,7 +2,7 @@
 
 feet_indices: &contacts [4, 5, 9, 10]
 
-gen_prototype: &gen_template ${model.components.gen_s1}
+gen_prototype: &gen_template ${model.components.gen_s2}
 disc_prototype: &disc_template ${model.components.disc_s1}
 
 model:
@@ -63,7 +63,9 @@ model:
           22,
         ]
       contacts: *contacts
-    gen_s2: *gen_template
+    gen_s2: #*gen_template
+      parents: *parents
+      contacts: *contacts
     gen_s3: *gen_template
       # parents: *parents
       # contacts: *contacts
@@ -138,17 +140,19 @@ model:
 _moai_:
   _definitions_:
     _flows_:
-      gen_s1: &gen_exec
+      gen_s1: 
         noise0: [noise_level_0]
         noise1: [noise_level_1]
         skeleton_id_map: [skeleton_id_map_level_x]
         generated: [prev]
         _out_: [fake]
 
-      gen_s2: 
-        <<: *gen_exec
+      gen_s2: &gen_exec
+        #<<: *gen_exec
         noise0: [noise_level_2]
         noise1: [noise_level_3]
+        generated: [prev]
+        _out_: [fake]
 
       gen_s3:
         <<: *gen_exec
@@ -160,7 +164,7 @@ _moai_:
 
       gen_s4:
         noise0: [noise_level_6]
-        skeleton_id_map: [skeleton_id_map_level_x]
+        #skeleton_id_map: [skeleton_id_map_level_x]
         generated: [prev]
         _out_: [fake]
 
@@ -672,10 +676,10 @@ _moai_:
           _out_: [fk_0_pred, fk_0_gt]
         _mi_:
           expression:
-            - ${mi:"global_root_position_0[:,0:180,:]"}
-            - ${mi:"global_root_position_0[:,180:360,:]"}
-            - ${mi:"demuxed_joint_euler_0[:,0:180, :]"}
-            - ${mi:"demuxed_joint_euler_0[:,180:360,:]"}
+            - ${mi:"global_root_position_0[:,0:240,:]"}
+            - ${mi:"global_root_position_0[:,240:480,:]"}
+            - ${mi:"demuxed_joint_euler_0[:,0:240, :]"}
+            - ${mi:"demuxed_joint_euler_0[:,240:480,:]"}
           _out_:
             - global_root_position_0_x
             - global_root_position_0_y
