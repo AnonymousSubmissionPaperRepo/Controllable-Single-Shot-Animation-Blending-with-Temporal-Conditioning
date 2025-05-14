@@ -19,7 +19,7 @@
                 "test",
                 "conf/data/main.yaml",
                 "export_filepath=C:/Users/tsele/Documents/Mixamo/npz",
-                "bvh_filename=C:/Users/tsele/Documents/Mixamo/dataset/0004_House_Dancing.bvh"
+                "bvh_filename=C:/Users/tsele/Documents/Mixamo/dataset/0007_Swing_Dancing.bvh"
             ]   
         },
 
@@ -38,7 +38,7 @@
                 "fit",
                 "conf/ganimator/main.yaml",
                 //"npz_filename=C:/Users/tsele/Documents/Mixamo/npz/00000.npz",
-                "npz_filename=['C:/Users/tsele/Documents/Mixamo/npz/both_npz_training/warming_up.npz', 'C:/Users/tsele/Documents/Mixamo/npz/both_npz_training/punch.npz']",
+                "npz_filename=['C:/Users/tsele/Documents/Mixamo/npz/both_npz_training/swing_594.npz', 'C:/Users/tsele/Documents/Mixamo/npz/both_npz_training/house_dancing.npz']",
                 "export_filepath=C:/Users/tsele/Documents/Mixamo/generated/bvh",
                 "bvh_filename=salsa_dance_variant",
                 "+bvh_filename_x=salsa_swing_dance_x",
@@ -62,11 +62,11 @@
                 "test",
                 "conf/ganimator/main.yaml",
                 //"npz_filename=C:/Users/tsele/Documents/Mixamo/npz/00000.npz",
-                "npz_filename=['C:/Users/tsele/Documents/Mixamo/npz/both_npz_testing_0_1/swing_480.npz', 'C:/Users/tsele/Documents/Mixamo/npz/both_npz_testing_0_1/wave_hip_hop.npz']",
+                "npz_filename=['C:/Users/tsele/Documents/Mixamo/npz/both_npz_testing_0_1/swing_594.npz', 'C:/Users/tsele/Documents/Mixamo/npz/both_npz_testing_0_1/house_dancing.npz']",
                 "export_filepath=C:/Users/tsele/Documents/Mixamo/generated/bvh",
-                "bvh_filename=swing_wave_dance",
-                "+bvh_filename_x=swing_wave_dance_x",
-                "+bvh_filename_y=swing_wave_dance_y",
+                "bvh_filename=swing_house_dancing_dance",
+                "+bvh_filename_x=swing_house_dancing_x",
+                "+bvh_filename_y=swing_house_dancing_y",
                 "+mdm_ckpt=C:/Users/tsele/Documents/t2m/text_mot_match/model/finest.tar",
                 //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-02-28/18-36-13-ganimator_experiment/ganimator_experiment/version_0/checkpoints/last.ckpt" //old ganimator
                 //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-03-20/08-59-46-ganimator_experiment/ganimator_experiment/version_0/checkpoints/last.ckpt" //zeros ganimator
@@ -89,9 +89,9 @@
                //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-06/20-23-51-ganimator_experiment_film_2/GANimator/ganimator_experiment_film_2/checkpoints/last.ckpt" //film layer 2
                //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-10/21-12-35-ganimator_experiment_swing_wave_1st_stage/GANimator/ganimator_experiment_swing_wave_1st_stage/checkpoints/last.ckpt" //swing_wave
                //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-11/17-53-17-ganimator_experiment_swing_wave_1st_stage_reco/GANimator/ganimator_experiment_swing_wave_1st_stage_reco/checkpoints/last.ckpt" //swing_wave_reco=75
-               "CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-11/20-36-34-ganimator_experiment_swing_wave_1st_stage_30000/GANimator/ganimator_experiment_swing_wave_1st_stage_30000/checkpoints/last.ckpt" //swing_wave_iterations=30000
+               //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-11/20-36-34-ganimator_experiment_swing_wave_1st_stage_30000/GANimator/ganimator_experiment_swing_wave_1st_stage_30000/checkpoints/last.ckpt" //swing_wave_iterations=30000
                 //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-12/10-54-51-ganimator_experiment_swing_wave_1st_stage_30000_test/GANimator/ganimator_experiment_swing_wave_1st_stage_30000_test/checkpoints/last.ckpt" //warming_up_punch
-               
+               "CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-13/20-55-55-ganimator_experiment_swing_house_dancing/GANimator/ganimator_experiment_swing_house_dancing/checkpoints/last.ckpt" //swing_house_dancing
             ]
         },
     ]
