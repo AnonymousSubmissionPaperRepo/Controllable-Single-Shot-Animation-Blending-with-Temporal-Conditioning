@@ -615,6 +615,9 @@ _moai_:
         index_root_pos:
           tensor: [smplh_joints_velocity, smplh_joints_velocity_gt]
           _out_: [r_velocity, r_velocity_gt]
+        index_joints_vel:
+          tensor: [smplh_joints_velocity, smplh_joints_velocity_gt]
+          _out_: [joints_velocity, joints_velocity_gt]
         rotmat_to_unitquat:
           rotation: [r_rotmat, r_rotmat_gt]
           _out_: [r_quat, r_quat_gt]
@@ -676,14 +679,18 @@ _moai_:
           _out_: [fk_0_pred, fk_0_gt]
         _mi_:
           expression:
-            - ${mi:"global_root_position_0[:,0:240,:]"}
-            - ${mi:"global_root_position_0[:,240:480,:]"}
-            - ${mi:"demuxed_joint_euler_0[:,0:240, :]"}
-            - ${mi:"demuxed_joint_euler_0[:,240:480,:]"}
+            - ${mi:"global_root_position_0[:,0:198,:]"}
+            - ${mi:"global_root_position_0[:,198:396,:]"}
+            # - ${mi:"global_root_position_0[:,396:594,:]"}
+            - ${mi:"demuxed_joint_euler_0[:,0:198, :]"}
+            - ${mi:"demuxed_joint_euler_0[:,198:396,:]"}
+            # - ${mi:"demuxed_joint_euler_0[:,396:594,:]"}
           _out_:
             - global_root_position_0_x
             - global_root_position_0_y
+            # - global_root_position_0_z
             - demuxed_joint_euler_0_x
             - demuxed_joint_euler_0_y
+            # - demuxed_joint_euler_0_z
 
 

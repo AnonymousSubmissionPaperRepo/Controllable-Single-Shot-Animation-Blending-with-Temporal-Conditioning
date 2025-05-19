@@ -48,6 +48,7 @@ defaults:
         index_last,
         index_root,
         index_root_pos,
+        index_joints_vel,
         force_grad,
         demux,
         simple_velocity,
@@ -91,6 +92,7 @@ defaults:
         local_diversity,
         mdm_global_diversity,
         mdm_local_diversity,
+        L2_velocity,
       ]
 
   ###### MONITOR

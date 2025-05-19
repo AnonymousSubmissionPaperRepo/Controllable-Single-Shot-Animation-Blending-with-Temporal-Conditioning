@@ -32,6 +32,9 @@ _moai_:
             pred: [clips_embeds]
             gt: [clips_embeds_gt]
             _out_: [fid]
+          L2_velocity:
+            velocities: [joints_velocity]
+            _out_: [l2_velocity]
       _monitors_:
         export_generated_skeleton:
           bvh:
@@ -139,6 +142,41 @@ _moai_:
                 - "RightArm" # 21
                 - "RightForeArm" # 22
                 - "RightHand" # 23
+        # export_z_motion:
+        #   bvh:
+        #     output_name: ["${bvh_filename_z}"]
+        #     export_path: ["${export_filepath}"]
+        #     parents: [joint_parents]
+        #     position: [global_root_position_0_z]
+        #     rotations: [demuxed_joint_euler_0_z]
+        #     offsets: [joint_offsets]
+        #     scale: [100.0]
+        #     names:
+        #       -
+        #         - "Hips" # 0
+        #         - "LeftUpLeg" # 1
+        #         - "LeftLeg" # 2
+        #         - "LeftFoot" # 3
+        #         - "LeftToeBase" # 4
+        #         - "LeftToe_End" # 5
+        #         - "RightUpLeg" # 6
+        #         - "RightLeg" # 7
+        #         - "RightFoot" # 8
+        #         - "RightToeBase" # 9
+        #         - "RightToe_End" # 10
+        #         - "Spine" # 11
+        #         - "Spine1" # 12
+        #         - "Spine2" # 13
+        #         - "Neck" # 14
+        #         - "Head" # 15
+        #         - "LeftShoulder" # 16
+        #         - "LeftArm" # 17
+        #         - "LeftForeArm" # 18
+        #         - "LeftHand" # 19
+        #         - "RightShoulder" # 20
+        #         - "RightArm" # 21
+        #         - "RightForeArm" # 22
+        #         - "RightHand" # 23
   _execution_:
     _monitoring_:
       _fit_:
@@ -162,3 +200,4 @@ _moai_:
               - export_generated_skeleton
               - export_x_motion
               - export_y_motion
+              # - export_z_motion
