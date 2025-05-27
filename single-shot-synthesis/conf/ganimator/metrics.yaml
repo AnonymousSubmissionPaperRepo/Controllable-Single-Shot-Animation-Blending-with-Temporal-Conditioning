@@ -35,6 +35,9 @@ _moai_:
           L2_velocity:
             velocities: [joints_velocity]
             _out_: [l2_velocity]
+          L2_acceleration:
+            velocities: [joints_velocity]
+            _out_: [l2_acceleration]
       _monitors_:
         export_generated_skeleton:
           bvh:

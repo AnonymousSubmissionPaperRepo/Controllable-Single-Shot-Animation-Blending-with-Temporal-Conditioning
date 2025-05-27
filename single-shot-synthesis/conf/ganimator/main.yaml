@@ -93,6 +93,7 @@ defaults:
         mdm_global_diversity,
         mdm_local_diversity,
         L2_velocity,
+        L2_acceleration,
       ]
 
   ###### MONITOR

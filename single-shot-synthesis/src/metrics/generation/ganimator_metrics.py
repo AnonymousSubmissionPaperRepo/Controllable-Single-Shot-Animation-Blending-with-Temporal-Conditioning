@@ -315,3 +315,67 @@ class L2_velocity(MoaiMetric):
         print(f'Blending area mean: {joint_names[0]}:{mean_blending_area[0]}, {joint_names[1]}:{mean_blending_area[1]}, {joint_names[2]}:{mean_blending_area[2]}, {joint_names[3]}:{mean_blending_area[3]}, {joint_names[4]}:{mean_blending_area[4]}')
 
         return np.mean(mean_blending_area)  #one scalar value of the mean of all frames of all joints
+    
+
+class L2_acceleration(MoaiMetric):
+    def __init__(self):
+        super().__init__()
+
+    def forward(
+        self, velocities: torch.Tensor  # [B, T, J, 3]  
+    ) -> torch.Tensor:
+        
+        #From XYZ velocities to one 
+        l2 = torch.norm(velocities, dim=-1) 
+
+        #Calculate the magnitude of the l2 velocity
+        delta_velocities = torch.abs(l2[:, 1:, :] - l2[:, :-1, :])
+
+        #calculate the acceleration the Δ(Δv)
+        acceleration = torch.abs(delta_velocities[:, 1:, :] - delta_velocities[:, :-1, :])
+
+        return acceleration
+
+    def compute(
+        self,
+        acceleration_values: typing.Sequence[np.ndarray]  # [B*iterations, T-2, J]
+    ) -> typing.Union[np.ndarray, typing.Mapping[str, np.ndarray]]:
+        
+        total_frames = acceleration_values[0].shape[-2] 
+        middle = total_frames // 2
+        start = middle - 15
+        end = middle + 15 
+
+        # Because i have many iterations i will have a mean of [frames,joints] of the velocities of all the iterations
+        acc_mean_per_frame_per_joint = np.mean(acceleration_values, axis=0)
+
+        #Plot the L2 acceleration per joint
+        joint_names = ["Pelvis", "LeftWrist", "RightWrist", "LeftFoot", "RightFoot"]
+        plt.figure(figsize=(12, 6))
+        for j in range(acc_mean_per_frame_per_joint.shape[1]):
+            plt.plot(acc_mean_per_frame_per_joint[:, j], label=joint_names[j], linewidth=1.0)
+
+        plt.axvline(x=start, color='gray', linestyle='--', linewidth=1)
+        plt.axvline(x=end, color='gray', linestyle='--', linewidth=1)
+
+        plt.title("L2 Acceleration per Joint")
+        plt.xlabel("Frame")
+        plt.ylabel("L2")
+        plt.legend()  
+        plt.grid(True)
+        plt.savefig("C:/Users/tsele/Documents/Mixamo/generated/plots/l2_acceleration_per_joint.png")
+        plt.close()
+
+        # Calculate the blending area
+        blending_area = acc_mean_per_frame_per_joint[start:end, :]  # [30, J]
+
+        # Calculate the mean of all the frames for each joint
+        joint_mean = np.mean(acc_mean_per_frame_per_joint, axis=0) #[J]
+
+        # Calculate the mean of the blending area for each joint
+        mean_blending_area = np.mean(blending_area, axis=0)  # [J]
+
+        print(f'Acceleration Whole area mean: {joint_names[0]}:{joint_mean[0]}, {joint_names[1]}:{joint_mean[1]}, {joint_names[2]}:{joint_mean[2]}, {joint_names[3]}:{joint_mean[3]}, {joint_names[4]}:{joint_mean[4]}')
+        print(f'Acceleration Blending area mean: {joint_names[0]}:{mean_blending_area[0]}, {joint_names[1]}:{mean_blending_area[1]}, {joint_names[2]}:{mean_blending_area[2]}, {joint_names[3]}:{mean_blending_area[3]}, {joint_names[4]}:{mean_blending_area[4]}')
+
+        return np.mean(mean_blending_area)  #one scalar value of the mean of all frames of all joints

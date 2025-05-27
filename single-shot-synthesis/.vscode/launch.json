@@ -93,7 +93,7 @@
                //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-11/20-36-34-ganimator_experiment_swing_wave_1st_stage_30000/GANimator/ganimator_experiment_swing_wave_1st_stage_30000/checkpoints/last.ckpt" //swing_wave_iterations=30000
                 //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-12/10-54-51-ganimator_experiment_swing_wave_1st_stage_30000_test/GANimator/ganimator_experiment_swing_wave_1st_stage_30000_test/checkpoints/last.ckpt" //warming_up_punch
                //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-13/20-55-55-ganimator_experiment_swing_house_dancing/GANimator/ganimator_experiment_swing_house_dancing/checkpoints/last.ckpt" //swing_house_dancing
-               "CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-14/15-25-58-ganimator_experiment_swing_house_dancing/GANimator/ganimator_experiment_swing_house_dancing/checkpoints/last.ckpt" //swing_house_dancing
+               "CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-14/15-25-58-ganimator_experiment_swing_house_dancing/GANimator/ganimator_experiment_swing_house_dancing/checkpoints/last.ckpt" //swing_house_dancing more frames
             ]
         },
     ]
