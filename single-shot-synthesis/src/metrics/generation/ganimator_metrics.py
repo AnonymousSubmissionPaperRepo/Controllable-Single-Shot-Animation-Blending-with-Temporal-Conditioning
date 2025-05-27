@@ -14,6 +14,7 @@ __all__ = [
     "GlobalDiversity",
     "Coverage",
     "L2_velocity",
+    "L2_acceleration",
 ]
 
 try:
