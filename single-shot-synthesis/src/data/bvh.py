@@ -29,8 +29,8 @@ class BioVisionHierarchyFile(torch.utils.data.Dataset):
         # pos = pos[::timescale]
         # euler = euler[::timescale]
 
-        pos = pos[:594]  #360 because are the frames for salsa dancing,480 for swing-wave,150 for warming_up-punch
-        euler = euler[:594]
+        pos = pos[:206]  #360 because are the frames for salsa dancing,480 for swing-wave,150 for warming_up-punch
+        euler = euler[:206]
 
         self.positions = pos.astype(np.float32) * scale
         self.joint_offsets = off.astype(np.float32) * scale

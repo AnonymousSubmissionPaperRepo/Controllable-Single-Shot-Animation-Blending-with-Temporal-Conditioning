@@ -1,0 +1,18 @@
+[2025-06-03 18:19:43,922][moai.engine.modules.seed][INFO] - :moai: Setting the seed to 1337.
+[2025-06-03 18:19:43,934][moai.engine.modules.importer][INFO] - :moai: Adding current working directory [C:\Users\tsele\Documents\GitHub\Blendanim\single-shot-synthesis] to path.
+[2025-06-03 18:19:58,777][moai.engine.modules.numpy][INFO] - :moai: Numpy version > 1.23.1, adding deprecated types.
+[2025-06-03 18:20:08,387][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`gradient_penalty`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-06-03 18:20:08,390][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`gradient_penalty`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-06-03 18:20:08,398][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`gradient_penalty`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-06-03 18:20:08,408][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`velocity`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-06-03 18:20:08,414][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`velocity`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-06-03 18:20:08,420][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`velocity`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-06-03 18:20:08,426][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`L1`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-06-03 18:20:08,429][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`L1`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-06-03 18:20:08,434][moai.core.execution.weighted][WARNING] - :moai: :warning: Objective [yellow bold]`L1`[/] has no assigned reduction, automatically reverting to mean reduction.
+[2025-06-03 18:20:08,691][src.metrics.generation.ganimator_metrics][WARNING] - :moai: [yellow bold]:warning:[/] Could not load the [cyan underline]ganimator-eval-kernel[/] package, reverting to the [green underline]numba[/] implementation.
+[2025-06-03 18:20:08,796][moai.core.model][INFO] - :moai: Modifying the model with forward_mode.
+[2025-06-03 18:20:09,857][moai.action.run][INFO] - :moai: Evaluation started.
+[2025-06-03 18:20:09,860][moai.action.run][WARNING] - :moai: No checkpoint path provided, test will be done with custom initialization if present.
+[2025-06-03 18:20:09,875][moai.parameters.initialization.partial][ERROR] - :moai: Checkpoint file `[ul cyan]C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-12/10-54-51-ganimator_experiment_warming_up_punch/GANimator/ganimator_experiment_warming_up_punch/checkpoints/last.ckpt[/]` does not exist :exclamation:
+[2025-06-03 18:20:09,879][moai.parameters.initialization.partial][INFO] - :moai: Initializing [italic cyan]named_components.gen_s1[/] [bold red]\[strictly][/] from [ul]C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-12/10-54-51-ganimator_experiment_warming_up_punch/GANimator/ganimator_experiment_warming_up_punch/checkpoints/last.ckpt[/].

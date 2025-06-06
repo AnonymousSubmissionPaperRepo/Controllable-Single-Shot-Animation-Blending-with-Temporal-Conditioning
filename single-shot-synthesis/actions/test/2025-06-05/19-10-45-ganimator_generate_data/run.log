@@ -1,0 +1,5 @@
+[2025-06-05 19:10:46,209][moai.engine.modules.importer][INFO] - Adding current working directory [C:\Users\tsele\Documents\GitHub\Blendanim\single-shot-synthesis] to path.
+[2025-06-05 19:10:46,209][moai.engine.modules.seed][WARNING] - No seed was manually specified, seed set randomly to 2646950483
+[2025-06-05 19:10:47,097][moai.action.run][INFO] - Evaluation started.
+[2025-06-05 19:10:47,097][moai.action.run][WARNING] - No checkpoint path provided, test will be done with custom initialization if present.
+[2025-06-05 19:10:47,108][moai.core.model][INFO] - Instantiating (Indexed) test set data iterator

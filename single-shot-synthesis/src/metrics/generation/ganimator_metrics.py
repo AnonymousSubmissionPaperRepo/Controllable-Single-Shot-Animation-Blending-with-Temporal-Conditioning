@@ -6,6 +6,8 @@ import torch
 import matplotlib.pyplot as plt
 from moai.validation.metric import MoaiMetric
 from numba import jit
+import matplotlib
+matplotlib.use('Agg')  
 
 log = logging.getLogger(__name__)
 

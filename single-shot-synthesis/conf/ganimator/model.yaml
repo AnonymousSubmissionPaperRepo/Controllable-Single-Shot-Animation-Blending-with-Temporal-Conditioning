@@ -679,11 +679,11 @@ _moai_:
           _out_: [fk_0_pred, fk_0_gt]
         _mi_:
           expression:
-            - ${mi:"global_root_position_0[:,0:198,:]"}
-            - ${mi:"global_root_position_0[:,198:396,:]"}
+            - ${mi:"global_root_position_0[:,0:75,:]"}
+            - ${mi:"global_root_position_0[:,75:150,:]"}
             # - ${mi:"global_root_position_0[:,396:594,:]"}
-            - ${mi:"demuxed_joint_euler_0[:,0:198, :]"}
-            - ${mi:"demuxed_joint_euler_0[:,198:396,:]"}
+            - ${mi:"demuxed_joint_euler_0[:,0:75, :]"}
+            - ${mi:"demuxed_joint_euler_0[:,75:150,:]"}
             # - ${mi:"demuxed_joint_euler_0[:,396:594,:]"}
           _out_:
             - global_root_position_0_x
