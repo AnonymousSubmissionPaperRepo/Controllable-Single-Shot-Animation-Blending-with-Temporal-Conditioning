@@ -29,8 +29,8 @@ _moai_:
             gt: [clips_embeds_gt]
             _out_: [mdm_ldiv]
           fid:
-            pred: [clips_embeds]
-            gt: [clips_embeds_gt]
+            pred: [motion_embed]
+            gt: [motion_embed_gt]
             _out_: [fid]
           L2_velocity:
             velocities: [joints_velocity]

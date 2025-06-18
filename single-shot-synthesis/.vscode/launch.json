@@ -39,7 +39,7 @@
                 "fit",
                 "conf/ganimator/main.yaml",
                 //"npz_filename=C:/Users/tsele/Documents/Mixamo/npz/00000.npz",
-                "npz_filename=['C:/Users/tsele/Documents/Mixamo/npz/both_npz_training/capoeira.npz', 'C:/Users/tsele/Documents/Mixamo/npz/both_npz_training/break_dance.npz']",
+                "npz_filename=['C:/Users/tsele/Documents/Mixamo/npz/both_npz_training/salsa.npz', 'C:/Users/tsele/Documents/Mixamo/npz/both_npz_training/swing.npz']",
                 "export_filepath=C:/Users/tsele/Documents/Mixamo/generated/bvh",
                 "bvh_filename=salsa_dance_variant",
                 "+bvh_filename_x=salsa_swing_dance_x",
@@ -63,11 +63,11 @@
                 "test",
                 "conf/ganimator/main.yaml",
                 //"npz_filename=C:/Users/tsele/Documents/Mixamo/npz/00000.npz",
-                "npz_filename=['C:/Users/tsele/Documents/Mixamo/npz/both_npz_testing_0_1/capoeira.npz', 'C:/Users/tsele/Documents/Mixamo/npz/both_npz_testing_0_1/break_dance.npz']",
+                "npz_filename=['C:/Users/tsele/Documents/Mixamo/npz/both_npz_testing_0_1/salsa.npz', 'C:/Users/tsele/Documents/Mixamo/npz/both_npz_testing_0_1/swing.npz']",
                 "export_filepath=C:/Users/tsele/Documents/Mixamo/generated/bvh",
-                "bvh_filename=capoeira_break_dance",
-                "+bvh_filename_x=capoeira_break_dance_x",
-                "+bvh_filename_y=capoeira_break_dance_y",
+                "bvh_filename=salsa_swing_1fid",
+                "+bvh_filename_x=salsa_swing_1fid_x",
+                "+bvh_filename_y=salsa_swing_1fid_y",
                 //"+bvh_filename_z=swing_house_dancing_z_010",
                 "+mdm_ckpt=C:/Users/tsele/Documents/t2m/text_mot_match/model/finest.tar",
                 //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-02-28/18-36-13-ganimator_experiment/ganimator_experiment/version_0/checkpoints/last.ckpt" //old ganimator
@@ -96,6 +96,7 @@
                //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-13/20-55-55-ganimator_experiment_swing_house_dancing/GANimator/ganimator_experiment_swing_house_dancing/checkpoints/last.ckpt" //swing_house_dancing
                //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-05-14/15-25-58-ganimator_experiment_swing_house_dancing/GANimator/ganimator_experiment_swing_house_dancing/checkpoints/last.ckpt" //swing_house_dancing more frames
                //"CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-06-05/20-21-22-ganimator_experiment_capoeira_break_dance/GANimator/ganimator_experiment_capoeira_break_dance/checkpoints/last.ckpt" //capoeira_break_dance
+               "CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-06-18/16-42-48-ganimator_experiment_test_1fid/GANimator/ganimator_experiment_test_1fid/checkpoints/last.ckpt" //salsa_swing_1fid
             ]
         },
     ]
