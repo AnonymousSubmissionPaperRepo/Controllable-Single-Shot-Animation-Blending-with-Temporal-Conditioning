@@ -1,3 +1,3 @@
-# Blendanim
-- GitHub repository for Blendanim: A generative model that learns to blend motions from single, short motion sequences.
-- Inspired by the BlendGAN paper (https://arxiv.org/abs/2212.01589), we aim to adapt this approach for motion data.
+# Controllable Single-Shot Animation Blending with Temporal Conditioning
+This repository provides the code for the first single-shot motion blending framework, built on a batched implementation of the GANimator model, that enables seamless blending by temporally conditioning the generation process. It is based on [GANimateer](https://github.com/moverseai/ganimateer), an AI-based post-processing toolset for automating the character animation process.
+
