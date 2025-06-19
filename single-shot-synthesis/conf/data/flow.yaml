@@ -60,11 +60,11 @@ _moai_:
             - ${mi:"flatten(joint_rotations_sixd, 2)"}
             - ${mi:"flatten(contact_labels.padded, 2)"}
             - ${mi:"cat(joint_rotations_sixd_flat, contact_labels_flat, root_features, zero_position, -1)"}
-            - ${mi:"zeros(motion_data)"}
+            # - ${mi:"zeros(motion_data)"}
             - ${mi:"ones(motion_data)"}
             # - ${mi:"skeleton_id_map_zeros[:, 0:103,:]"}
             # - ${mi:"skeleton_id_map_ones[:, 0:103,:]"}
-            - ${mi:"cat(skeleton_id_map_zeros, skeleton_id_map_ones, -2)"}
+            # - ${mi:"cat(skeleton_id_map_zeros, skeleton_id_map_ones, -2)"}
             # - ${mi:"cat(skeleton_id_map_zeros_cut, skeleton_id_map_ones_cut, -2)"}
             # - ${mi:"cat(skeleton_id_map_ones_cut, skeleton_id_map_zeros_cut, -2)"}
             # - ${mi:"cat(skeleton_id_map, skeleton_id_map_ones_cut, -2)"}
@@ -74,8 +74,8 @@ _moai_:
             - joint_rotations_sixd_flat
             - contact_labels_flat
             - motion_data
-            - skeleton_id_map_zeros
-            - skeleton_id_map_ones
+            # - skeleton_id_map_zeros
+            # - skeleton_id_map_ones
             # - skeleton_id_map_zeros_cut
             # - skeleton_id_map_ones_cut
             # - skeleton_id_map

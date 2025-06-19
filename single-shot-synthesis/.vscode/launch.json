@@ -19,7 +19,7 @@
                 "test",
                 "conf/data/main.yaml",
                 "export_filepath=C:/Users/tsele/Documents/Mixamo/npz",
-                 "bvh_filename=C:/Users/tsele/Documents/Mixamo/dataset/0001_Capoeira.bvh"
+                 "bvh_filename=C:/Users/tsele/Documents/Mixamo/dataset/0007_Swing_Dancing.bvh"
                 //"bvh_filename=C:/Users/tsele/Documents/Mixamo/dataset/0000_Breakdance_Freezes.bvh"
             ]   
         },
@@ -39,7 +39,7 @@
                 "fit",
                 "conf/ganimator/main.yaml",
                 //"npz_filename=C:/Users/tsele/Documents/Mixamo/npz/00000.npz",
-                "npz_filename=['C:/Users/tsele/Documents/Mixamo/npz/both_npz_training/salsa.npz', 'C:/Users/tsele/Documents/Mixamo/npz/both_npz_training/swing.npz']",
+                "npz_filename=['C:/Users/tsele/Documents/Mixamo/npz/both_npz_training/swing_300.npz', 'C:/Users/tsele/Documents/Mixamo/npz/both_npz_training/swing_300.npz']",
                 "export_filepath=C:/Users/tsele/Documents/Mixamo/generated/bvh",
                 "bvh_filename=salsa_dance_variant",
                 "+bvh_filename_x=salsa_swing_dance_x",

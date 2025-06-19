@@ -5,7 +5,7 @@ CKPT: "."
 experiment:
   batch_size: 2
   workers: 0
-  name: ganimator_experiment_test_1fid
+  name: ganimator_experiment_swing_300_300
 
 engine:
   runner:
