@@ -1,8 +1,0 @@
-- npz_filename=['C:/Users/tsele/Documents/Mixamo/npz/both_npz_testing_0_1/salsa.npz',
-  'C:/Users/tsele/Documents/Mixamo/npz/both_npz_testing_0_1/swing.npz']
-- export_filepath=C:/Users/tsele/Documents/Mixamo/generated/bvh
-- bvh_filename=salsa-swing_dance
-- +mdm_ckpt=C:/Users/tsele/Documents/t2m/text_mot_match/model/finest.tar
-- CKPT=C:/Users/tsele/Documents/GitHub/Blendanim/single-shot-synthesis/actions/fit/2025-04-13/13-53-18-ganimator_experiment_spade_without4th_new/GANimator/ganimator_experiment_spade_without4th_new/checkpoints/last.ckpt
-- +mode=run
-- +action=test

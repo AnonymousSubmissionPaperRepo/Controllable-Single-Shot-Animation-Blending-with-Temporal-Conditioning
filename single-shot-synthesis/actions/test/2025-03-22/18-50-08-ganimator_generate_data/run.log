@@ -1,6 +1,0 @@
-[2025-03-22 18:50:09,234][moai.engine.modules.importer][INFO] - Adding current working directory [C:\Users\tsele\Documents\GitHub\Blendanim\single-shot-synthesis] to path.
-[2025-03-22 18:50:09,236][moai.engine.modules.seed][WARNING] - No seed was manually specified, seed set randomly to 569560428
-[2025-03-22 18:50:09,818][moai.action.run][INFO] - Evaluation started.
-[2025-03-22 18:50:09,819][moai.action.run][WARNING] - No checkpoint path provided, test will be done with custom initialization if present.
-[2025-03-22 18:50:09,825][moai.core.model][INFO] - Instantiating (Indexed) test set data iterator
-[2025-03-22 18:50:09,852][src.data.bvh][ERROR] - Path (C:/Users/tsele/Documents/Mixamo/dataset/0007_Salsa_Dancing.bvh) does not exist.

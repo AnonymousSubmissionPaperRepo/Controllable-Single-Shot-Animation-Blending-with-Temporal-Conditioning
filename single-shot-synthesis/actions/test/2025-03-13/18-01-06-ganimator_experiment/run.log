@@ -1,3 +1,0 @@
-[2025-03-13 18:01:08,547][moai.engine.modules.seed][INFO] - :moai: Setting the seed to 1337.
-[2025-03-13 18:01:08,563][moai.engine.modules.importer][INFO] - :moai: Adding current working directory [C:\Users\tsele\Documents\GitHub\Blendanim\single-shot-synthesis] to path.
-[2025-03-13 18:01:08,569][moai.engine.modules.numpy][INFO] - :moai: Numpy version > 1.23.1, adding deprecated types.

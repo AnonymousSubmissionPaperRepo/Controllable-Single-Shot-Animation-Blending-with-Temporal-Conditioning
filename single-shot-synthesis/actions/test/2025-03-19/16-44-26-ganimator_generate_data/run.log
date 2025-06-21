@@ -1,3 +1,0 @@
-[2025-03-19 16:44:26,859][moai.engine.modules.importer][INFO] - Adding current working directory [C:\Users\tsele\Documents\GitHub\Blendanim\single-shot-synthesis] to path.
-[2025-03-19 16:44:26,860][moai.engine.modules.seed][WARNING] - No seed was manually specified, seed set randomly to 2694703177
-[2025-03-19 16:44:27,010][moai.core.execution.monads][ERROR] - The following monads [['skeleton']] were not found in the configuration and will be ignored!
